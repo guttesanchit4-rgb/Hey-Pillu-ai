@@ -13,7 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,15 +23,15 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      -       - name: Set up Android SDK
+      - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: 'platform-tools'
+          packages: platform-tools
 
       - name: Check Gradle wrapper
         run: |
           if [ ! -f gradlew ]; then
-            echo "ERROR: gradlew is missing from repository root."
+            echo "ERROR: gradlew is missing from repository root"
             exit 1
           fi
           chmod +x gradlew
